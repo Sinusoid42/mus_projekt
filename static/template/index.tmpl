@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ros Rocks - The Room Occupancy Management System</title>
+    <link rel="stylesheet"  href ="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/color_sceme.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="/css/main_menu.css">
+    <script src="/js/color_sceme.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/testdata.js"></script>
+    <script defer src="/js/main_menu.js"></script>
+    <script defer src="/js/index.js"></script>
+</head>
+<body class="m-0 p-0">
+<div class="container-fluid m-0 p-0" style="width: 100%;height: 100%;" id="">
+    <div class="row fixed-top m-0 p-0" style="width: 100%;height: 100%;">
+        <div class="col-9 pt-4 ros-bg-sb">
+            <div class="row">
+                <div class="col-3">
+                    <ul id="m0">
+                    </ul>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-5">
+                <div class="col-12 mt-5">
+                    <img class="col-12 pt-5 pb-5" src="/images/TH_Deutz_big.jpg">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-3 ros-bg-lb" id="ros_main_menu">
+            <div class="row pt-4" id="ros_main_menu_header">
+                <div class="col-8">
+                    <div class="row"><div class="col-12 ml-4 text-left font-italic font-weight-bold">Room</div></div>
+                    <div class="row"><div class="col-12 ml-4 text-left font-italic font-weight-bold">Occupancy</div></div>
+                    <div class="row"><div class="col-12 ml-4 text-left font-italic font-weight-bold">System</div></div>
+                </div>
+                <div class="col-4" id="ros_main_menu_svg_header">
+                    <div class="row">
+                        <img alt="logo col-12" src="/svg/ros_icon.svg">
+                    </div>
+                    <!--  SVG ROS LOGO HERE -->
+                </div>
+            </div>
+            {{if .auth}}
+                <div class="row pt-5" id="M0">
+                    <div class="col-12">
+                        <div class="row justify-content-center mt-5">
+                            <button class="col-3 btn" id="M0btn1"
+                            onclick="window.open('http://{{.server_address}}:{{.server_port}}/users', '_self')">Account</button>
+                        </div>
+
+                        <div class="row justify-content-center mt-5">
+                            <button class="col-3 btn" id="M0btn2"
+                            onclick="window.open('http://{{.server_address}}:{{.server_port}}/logout', '_self')">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            {{else}}
+                <div class="row pt-5" id="M0">
+                    <div class="col-12">
+                        <div class="row justify-content-center mt-5">
+                            <button class="col-3 btn" id="M0btn1"
+                                    onclick="window.open('http://{{.server_address}}:{{.server_port}}/login', '_self')">Login</button>
+                        </div>
+                    </div>
+                </div>
+            {{end}}
+        </div>
+    </div>
+</div>
+<script>
+</script>
+</body>
+</html>

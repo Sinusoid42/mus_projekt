@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room Occupancy System - Arduino</title>
+    <link rel="stylesheet"  href ="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/color_sceme.css">
+    <script defer src="/js/main.js"></script>
+    <script defer src="/js/testdata.js"></script>
+    <script defer src="/js/api_arduinos.js"></script>
+</head>
+<body class="ros-bg-lb">
+    <div class="container">
+        <div class="row">
+            <div class="text-center ros-bg-sb" style="margin-right: 15em; margin-left: 15em; margin-top: 2em; border-style: solid;border-radius: 1em ">
+                <h1>Room Occupancy System - Arduino Manager</h1>
+            </div>
+        </div>
+        <div class="row mt-5 justify-content-around">
+            <div class="col-5">
+                <div class="col-12" id="microcontroller_updates_container" style="border-style: solid;border-radius: 1em">
+                    <div class="row justify-content-center">
+                        <h2>Arduinos</h2>
+                    </div>
+                    <div class="row justify-content-center">
+                        <button class="btn ros-bg-lr"
+                                onmouseenter="this.style.backgroundColor = color_sceme.sr"
+                                onmouseleave="this.style.backgroundColor = color_sceme.lr"
+                                onclick="create_new_arduino()"> <b>+</b> </button>
+                    </div>
+                    <!-- dynamic content here-->
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="col-12" id="microcontroller_settings_container" style="border-style: solid;border-radius: 1em" >
+                    <div class="row justify-content-center">
+                        <h2>Arduino Settings</h2>
+                    </div>
+                    <!-- dynamic content here-->
+                    <div class="row justify-content-center">
+                        <div class="col-5"><b>Arduino ID:</b></div><!-- Variable to be set by the server -->
+                        <div class="col-7 ml-0"><input id="microcontroller_settings_id" class="input-group-text" type="text" placeholder="arduino id"></div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-5"><b>DB ID:</b></div><!-- Variable to be set by the server -->
+                        <div class="col-7"><p class="text-center" id="microcontroller_settings_db_id">Server Generated</p></div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-5"><b>DB REV:</b></div><!-- Variable to be set by the server -->
+                        <div class="col-7"><p class="text-center" id="microcontroller_settings_db_rev">Server Generated</p></div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-5 mr-0 pr-0"><b>Room:</b></div>
+                        <div class="col-7 ml-0 pr-5"><div id="microcontroller_settings_room" class="input-group-text text-center" type="text" placeholder="the room"> - </div></div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-5 mr-0 pr-0"><b>Room ID:</b></div>
+                        <div class="col-7 ml-0"><input id="microcontroller_settings_room_id" class="input-group-text" type="text" placeholder="the room id"></div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-5 mr-0 pr-0"><b>Arduino IP Address:</b></div>
+                        <div class="col-7 ml-0"><input id="microcontroller_settings_ip" class="input-group-text" type="text" placeholder="arduino ip address"></div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-5"><b>Arduino PORT:</b></div>
+                        <div class="col-7 ml-0"><input id="microcontroller_settings_port" class="input-group-text" type="text" placeholder="arduino port"></div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-5"><b>Password:</b></div>
+                        <div class="col-7 ml-0"><input id="microcontroller_settings_password"  class="input-group-text" type="text" placeholder="arduino password"></div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-5"><b>Arduino Type:</b></div>
+                        <div class="col-7 ml-0"><input id="microcontroller_type"  class="input-group-text" type="text" placeholder="arduino password"></div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-5"><b>Firmware:</b></div>
+                        <div class="col-7 ml-0"><input id="microcontroller_firmware"  class="input-group-text" type="text" placeholder="arduino password"></div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-5"><b>Active Template:</b></div>
+                        <div class="col-7 ml-0"><input id="microcontroller_settings_current_template" class="input-group-text" type="text" placeholder="current_template_name"></div>
+                    </div>
+                    <div class="row justify-content-center mt-4 mb-3">
+                        <div class="col-6">
+                            <div class="row justify-content-md-center">
+                            <button class="btn ros-bg-lr" id="microcontroller_settings_delete_btn"
+                                onmouseenter="this.style.backgroundColor = color_sceme.sr"
+                                onmouseleave="this.style.backgroundColor = color_sceme.lr"
+                                disabled onclick="deleteSelectedArduino()">Delete</button>
+                            </div></div>
+                        <div class="col-6">
+                            <div class="row justify-content-md-center">
+                            <button class="btn ros-bg-lr" id="microcontroller_settings_save_btn"
+                                    onmouseenter="this.style.backgroundColor = color_sceme.sr"
+                                    onmouseleave="this.style.backgroundColor = color_sceme.lr"
+                                    disabled onclick="safeSelectedArduino()">Save</button>
+                            </div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

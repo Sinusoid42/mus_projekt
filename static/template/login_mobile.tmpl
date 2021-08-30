@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ros Rocks - The Room Occupancy Management System</title>
+    <link rel="stylesheet"  href ="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/color_sceme.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <script defer src="/js/main.js"></script>
+    <script defer src="/js/rot13.js"></script>
+    <script defer src="/js/login.js"></script>
+</head>
+<body class="ros-bg-lb">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-7">
+                <div class="row text-center"><div class="col-12 text-right font-italic font-weight-bold" style="font-size: 5em">Room</div></div>
+                <div class="row text-center"><div class="col-12 text-right font-italic font-weight-bold" style="font-size: 5em">Occupancy</div></div>
+                <div class="row text-center"><div class="col-12 text-right font-italic font-weight-bold" style="font-size: 5em">System</div></div>
+            </div>
+            <img class="col-5" style="margin-top: 5em" src="/svg/ros_icon.svg" width="120em" height="180em">
+        </div>
+
+        <div class="pt-4 row d-flex justify-content-center ros-bg-lb">
+            <div class="col-12">
+                <div class="row justify-content-md-center"><button class="col-8 btn ros-bg-sb pt-2 pb-2 mt-2" style="font-size: 5em" onmouseenter="btn.onEnter(this)"onmouseleave="btn.onLeave(this)" onclick="loadLoginForm()">Login</button></div>
+                <div class="row justify-content-md-center"><button class="col-8 btn ros-bg-sb pt-2 pb-2 mt-5" style="font-size: 5em" onmouseenter="btn.onEnter(this)"onmouseleave="btn.onLeave(this)" onclick="loadRegisterForm()">Register</button></div>
+
+            </div>
+
+        </div>
+        <div class="container-fluid ros-bg-lb">
+            <div class="row pt-4 d-flex justify-content-center" id="login_form_container">
+                <!-- Here goes the dynamically loaded Login or Register Form-->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,270 @@
+/**
+    user page and calender app css definitions in order to create a highly functional and responsive
+    frontend app for the calender
+
+    @author ben
+    @author davidMK
+ */
+
+
+.form_container {
+    height: 100%;
+    width: 100%;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    position:fixed;
+}
+
+body, html {
+    height: 100%;
+    width : 100%;
+}
+
+.form_body {
+    width: 70em;
+    height: 38em;
+    margin-top: 3em;
+    margin-bottom: 2em;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    border-width: 1px;
+    border-style: none;
+}
+
+.umb{
+    width: 7em;
+    height: 1.75em;
+    background-color: #bec7ce;
+    color: white;
+    text-align: center;
+
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    border-style: none;
+    border-color: #000000;
+}
+
+.umb:hover{
+    background-color: #CEE3F2;
+    color: #000000;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+}
+
+.cal_e {
+    background-color: #4C657C;
+    width: 6em;
+    height: 1.85em;
+    color: #FFFFFF;
+    text-align: center;
+    border-style: none;
+    border-width: 1px;
+    font-size: 14px;
+    '''border-color: #000000;
+    '''border-radius: 0.9em 0.2em 0.2em 0.2em;
+}
+
+.cal_e_b {
+    background-color: #f5f5f5;
+    width: 7.9em;
+    height: 1.85em;
+    color: #424242;
+    text-align: center;
+    border-style: none;
+    border-width: 1px;
+    font-size: 14px;
+    '''border-color: #000000;
+    '''border-radius: 0.2em 0.2em 0.2em 0.2em;
+}
+
+.cal_e_b:hover{
+    background-color: #CEE3F2;
+    color: #000000;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+}
+
+.cbtn{
+    color: #FFFFFF;
+}
+
+.cbtn:hover {
+    background-color: #CEE3F2;
+    color: #000000;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+}
+
+.cal_e_b_o0 {
+    background-color: #bff5aa;
+    width: 7.9em;
+    height: 1.85em;
+    color: #FFFFFF;
+    text-align: center;
+    border-style: none;
+    border-width: 1px;
+    font-size: 14px;
+    '''border-color: #000000;
+    '''border-radius: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.cal_e_b_o0:hover{
+    background-color: #97fd54;
+    color: #000000;
+}
+
+
+.cal_e_b_o1 {
+    background-color: #CFA530;
+    width: 7.9em;
+    height: 1.85em;
+    color: #FFFFFF;
+    text-align: center;
+    border-style: none;
+    border-width: 1px;
+    font-size: 14px;
+'''border-color: #000000;
+'''border-radius: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.cal_e_b_o1:hover{
+    background-color: #FFC530;
+    color: #000000;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+}
+
+.cal_e_b_o2 {
+    background-color: #AB4F60;
+    width: 7.9em;
+    height: 1.85em;
+    color: #FFFFFF;
+    text-align: center;
+    border-style: none;
+    border-width: 1px;
+    font-size: 14px;
+'''border-color: #000000;
+'''border-radius: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.cal_e_b_o2:hover{
+    background-color: #DB4F60;
+    color: #000000;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+}
+
+.cal_e_b_o3 {
+    background-color: #AB4F60;
+    width: 7.9em;
+    height: 1.85em;
+    color: #FFFFFF;
+    text-align: center;
+    border-style: none;
+    border-width: 1px;
+    font-size: 14px;
+    '''border-color: #000000;
+    '''border-radius: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.cal_e_b_o3:hover{
+    background-color: #DB4F60;
+    color: #000000;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+}
+
+.cal_e_b_o4 {
+    background-color: #AAAAAA;
+    width: 7.9em;
+    height: 1.75em;
+    color: #FFFFFF;
+    text-align: center;
+    border-style: none;
+    border-width: 1px;
+    font-size: 14px;
+    '''border-color: #000000;
+    '''border-radius: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.cal_e_b_o4:hover{
+    background-color: #CCCCCC;
+    color: #000000;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+}
+
+.rpbtn {
+
+}
+
+.rpbtn:hover {
+    background-color: #ffccd2;
+}
+
+
+
+.acc_u_b{
+    background-color: #FFFFFF;
+
+    border-width: 1px;
+}
+
+.acc_u_b:hover{
+    background-color: #9fcdff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+}
+
+.u_bks_le {
+    background-color: #FFFFFF;
+}
+
+.u_bks_le:hover {
+    background-color: #cee3f2;
+}
+
+.u_bks_r{
+    background-color: #FFFFFF;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    border-width: 1px;
+    border-color: #000000;
+    border-style: solid;
+}
+
+.u_bks_r:hover{
+    background-color: #9fcdff;
+}
+
+.u_brs_r_0{
+    background-color:#AB4F60;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    border-width: 1px;
+    border-color: #000000;
+    border-style: solid;
+}
+
+
+.u_brs_r_0:hover{
+    background-color: #DB4F60;
+}
+.u_brs_r_1{
+    background-color:#bff5aa;
+    border-radius: 0.2em 0.2em 0.2em 0.2em;
+    border-width: 1px;
+    border-color: #000000;
+    border-style: solid;
+}
+
+.u_brs_r_1:hover{
+    background-color: #97fd54;
+}
+
+
+

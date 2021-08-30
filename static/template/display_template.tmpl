@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room Occupancy System - Arduino</title>
+    <link rel="stylesheet"  href ="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/color_sceme.css">
+
+    <script defer src="/js/main.js"></script>
+    <script defer src="/js/api_templates.js"></script>
+</head>
+<body class="ros-bg-lb">
+<div class="container">
+    <div class="row">
+        <div class="text-center ros-bg-sb" style="margin-right: 15em; margin-left: 15em; margin-top: 2em; border-style: solid;border-radius: 1em ">
+            <h1>Room Occupancy System - Template Manager</h1>
+        </div>
+    </div>
+    <div class="row mt-5 justify-content-around">
+                <div class="col-3">
+                    <div class="col-12"  style="border-style: solid;border-radius: 1em">
+                        <div class="row justify-content-center">
+                            <h3>Templates</h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            <button class="col-2 btn ros-bg-lr" id="atb"><b>+</b></button>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-12 mt-2" id="template_container">
+                            </div>
+                        </div><!-- add template button-->
+                        <!-- dynamic content here--> <!-- create floors dynamicly here-->
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="col-12"  style="border-style: solid;border-radius: 1em">
+                        <div class="row justify-content-center">
+                            <h3>Elements</h3>
+                        </div>
+                        <div class="row justify-content-center">
+                            <button class="col-2 btn ros-bg-lr" id="aeb"><b>+</b></button>
+                        </div><!-- add element button-->
+                        <!-- dynamic content here--> <!-- create wings dynamicly here-->
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12 mt-2" id="element_container">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-5">
+                <div class="col-12" id="room_settings_container" style="border-style: solid;border-radius: 1em" >
+                    <div class="row justify-content-center">
+                        <h2>Template Settings</h2>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-6 text-left pt-2"><b>Template ID</b></div>
+                        <div class="col-5 input-group-text text-center" id="t_tid">-</div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-6 text-left pt-2"><b>Template Name</b></div>
+                        <input class="col-5 input-group-text text-center" id="t_tnm" placeholder="-"></input>
+                    </div>
+                    <div class="row justify-content-center mt-4">
+                        <h3>Element Settings</h3>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-6 text-left pt-2"><b>Element ID</b></div>
+                        <div class="col-5 input-group-text text-center" id="t_eid">-</div>
+                    </div>
+                    <div class="row justify-content-center mt-4">
+                        <p>Dynamic Content</p>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-6 text-left pt-2"><b>Element Content</b></div>
+                        <input class="col-5 input-group-text text-center" placeholder="-" id="t_edc"></input>
+                </div>
+                <div class="row justify-content-center mt-1">
+                    <div class="col-6 text-left pt-2"><b>Element Content Static</b></div>
+                    <div class="col-5">
+                        <div class="row justify-content-center">
+                            <button class="col-3 btn text-center ros-bg-sr p-0 m-0 mt-1 mb-1" id="t_cst">X</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-4">
+                    <p>Static Template Parameters</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-6 text-center "><b>X :</b></div>
+                    <div class="col-5">
+                        <div class="row justify-content-center">
+                            <input type="number" class="col-6 input-group-text text-center m-0 p-0" id="t_ex" placeholder="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-1">
+                    <div class="col-6 text-center "><b>Y :</b></div>
+                    <div class="col-5">
+                        <div class="row justify-content-center">
+                            <input type="number" class="col-6 input-group-text text-center m-0 p-0" id="t_ey" placeholder="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-1">
+                    <div class="col-6 text-center "><b>W :</b></div>
+                    <div class="col-5">
+                        <div class="row justify-content-center">
+                            <input type="number" class="col-6 input-group-text text-center m-0 p-0" id="t_ew" placeholder="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-1">
+                    <div class="col-6 text-center "><b>H :</b></div>
+                    <div class="col-5">
+                        <div class="row justify-content-center">
+                            <input type="number" class="col-6 input-group-text text-center m-0 p-0" id="t_eh" placeholder="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-1">
+                    <div class="col-6 text-center pt-2"><b>Color</b></div>
+                    <input class="col-5 input-group-text text-center m-0 p-0" placeholder="color" id="t_ec"></input>
+                </div>
+                <div class="row justify-content-center mt-1">
+                    <div class="col-6 text-center pt-2"><b>Fill Color</b></div>
+                    <input class="col-5 input-group-text text-center m-0 p-0" placeholder="color" id="t_efc"></input>
+                </div>
+                <div class="row justify-content-center mt-1">
+                    <div class="col-6 text-center "><b>Font Size</b></div>
+                    <div class="col-5">
+                        <div class="row justify-content-center">
+                            <input type="number" class="col-6 input-group-text text-center m-0 p-0" id="t_fs" placeholder="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-1">
+                    <div class="col-6 text-center "><b>Pixel Size</b></div>
+                    <div class="col-5">
+                        <div class="row justify-content-center">
+                            <input type="number" class="col-6 input-group-text text-center m-0 p-0" id="t_psi" placeholder="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-1">
+                    <div class="col-6 text-center "><b>Pixel Style</b></div>
+                    <div class="col-5">
+                        <div class="row justify-content-center">
+                            <input class="col-6 input-group-text text-center m-0 p-0" id="t_pst" placeholder="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-1 mb-4">
+                    <div class="col-6 text-center pt-2"><b>Form</b></div>
+                    <input class="col-5 input-group-text text-center m-0 p-0" placeholder="color" id="t_frm"></input>
+                </div>
+                <!-- dynamic content here-->
+                <div class="row justify-content-center">
+                    <div class="col-2 pb-3">
+                        <button class="btn ros-bg-lr" id="t_btn">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<html>

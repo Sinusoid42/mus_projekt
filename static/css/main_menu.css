@@ -1,0 +1,165 @@
+/**
+  CSS definitions for the main meny asynchronous microservice component
+
+  The menu service component can be added to any webpage for the user to be able to select a new room
+  and enter the calender app for that room that way
+
+  @author ben
+  @author davidMK
+ */
+
+
+.m0ul {
+  position: fixed;
+  display: none;
+  z-index: 100;
+  position: fixed;
+}
+
+.m0l {
+  padding-top: 0.2em;
+  list-style-type: none;
+  width: 5em;
+  height: 2.5em;
+}
+
+.m0a {
+  border-radius: 4px 4px 4px 4px ;
+  background-color: #3f678b;
+  color: #FFFFFF;
+  border-style: none;
+
+  width: 4em;
+  height: 2em;
+  text-align: center;
+  padding-top: 0.15em;
+  padding-bottom: 1.5em;
+  font-size: 16px;
+  display: block;
+}
+
+.m1ul {
+  display: none;
+}
+
+.m1l {
+  padding-top: 0.2em;
+  position: static;
+  list-style-type: none;
+  display: none;
+}
+
+.m1a {
+  border-radius: 4px 4px 4px 4px ;
+  color: #FFFFFF;
+  width: 5em;
+  height: 1.5em;
+  padding-bottom: 1.5em;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000000;
+  background-color:  #4C657C;
+  text-align: center;
+  font-size: 12px;
+  display: block;
+}
+
+.m2ul {
+  display: none;
+}
+
+.m2l {
+  padding-top: 0.2em;
+  list-style-type: none;
+  display: none;
+}
+
+.m2a {
+  border-radius: 4px 4px 4px 4px ;
+  color: #FFFFFF;
+  width: 5em;
+  padding-bottom: 1.5em;
+  height: 1.2em;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000000;
+  background-color:  #4C657C;
+  text-align: center;
+  font-size: 12px;
+  display: block;
+}
+
+
+.m3l {
+  padding-top: 0.3em;
+  list-style-type: none;
+  display: none;
+}
+
+.m3a {
+  border-radius: 4px 4px 4px 4px ;
+  color: #FFFFFF;
+  width: 6em;
+  padding-bottom: 1.5em;
+  height: 1.5em;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000000;
+  background-color:  #4C657C;
+  text-align: center;
+  font-size: 12px;
+  display: block;
+}
+
+
+.m0l:hover .m1l{
+  display: block;
+}
+
+.m0l:hover .m0ul{
+  display: block;
+}
+
+.m1l:hover .m0ul{
+  display: block;
+}
+
+.m0ul:hover .m0ul{
+  display:block;
+}
+
+.m1l:hover .m2l {
+  display: block;
+}
+
+.m1l:hover .m1ul{
+  display: block;
+}
+
+.m2l:hover .m3l{
+  display: block;
+}
+
+.m2l:hover .m2ul{
+  display: block;
+}
+
+.m0a:hover {
+  color:  #DB4F60;
+  background-color: #273A4C;
+}
+
+.m1a:hover {
+  color:  #DB4F60;
+  background-color: #273A4C;
+}
+
+.m2a:hover {
+  color:  #DB4F60;
+  background-color: #273A4C;
+}
+
+.m3a:hover {
+  color:  #DB4F60;
+  background-color: #273A4C;
+}

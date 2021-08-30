@@ -1,0 +1,26 @@
+/**
+    CSS definitions for the form container login/register
+
+    @author ben
+ */
+
+
+.form_container {
+    height: 100%;
+    width: 100%;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+body, html {
+    height: 100%;
+    width : 100%;
+}
+
+.form_body {
+    box-shadow: 0.2em 0.2em 1em #273A4C;
+    width: 35em;
+    height: 22em;
+    margin-top: 8em;
+    border-radius: 0px 2em 0em 0px;
+}

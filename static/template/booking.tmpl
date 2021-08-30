@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ros Rocks - The Room Occupancy Management System</title>
+    <link rel="stylesheet"  href ="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/color_sceme.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <script  src="/js/main.js"></script>
+    <script  src="/js/qrcode.min.js"></script>
+</head>
+<body>
+<div class="form_container ros-bg-sb ">
+
+    <div class="container-fluid justify-content-center d-flex">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 form_body ros-bg-pb">
+                <div class="row pt-3">
+                    <div class="col-6">
+                        <!-- ROS LOGO HERE -->
+                        <div class="row">
+                            <div class="col-12">
+                                <img class="col-12" style="margin-top: 4em" height="140em" src="/images/TH_Deutz_2.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="row mt-0 pt-0"><div class="col-12 text-left font-italic font-weight-bold">Room</div></div>
+                                <div class="row mt-0 pt-0"><div class="col-12 text-left font-italic font-weight-bold">Occupancy</div></div>
+                                <div class="row mt-0 pt-0"><div class="col-12 text-left font-italic font-weight-bold">System</div></div>
+                            </div>
+                            <div class="col-8">
+                                <img class="ml-4 mt-0" src="/svg/ros_icon.svg" width="60em" height="80em">
+                            </div>
+                        </div>
+                        <div class="pt-4 row d-flex justify-content-center">
+                            <button class=" col-5 btn ros-bg-sb pt-0 pb-0 ml-2 mr-2" style="box-shadow: 1px 1px 6px #000;" onmouseenter="btn.onEnter(this)"onmouseleave="btn.onLeave(this)" onclick="loadLoginForm()">Login</button>
+                            <button class=" col-5 btn ros-bg-sb pt-0 pb-0 ml-2 mr-2" style="box-shadow: 1px 1px 6px #000;" onmouseenter="btn.onEnter(this)"onmouseleave="btn.onLeave(this)" onclick="loadRegisterForm()">Register</button>
+                        </div>
+                        <div class="row pt-4 d-flex justify-content-center" id="login_form_container">
+                            <!-- Here goes the dynamically loaded Login or Register Form-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

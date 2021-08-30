@@ -1,0 +1,63 @@
+/**
+    MIT Licence:
+
+    Copyright 2021 (c)ROS_Project_Group {TH Koeln - 6.Semester - Medientechnologie}
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this
+    software and associated documentation files (the "Software"), to deal in the Software
+    without restriction, including without limitation the rights to use, copy, modify, merge,
+    publish, distribute, sublicense, and/or sell copies of the Software, and to permit
+    persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or
+    substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+    PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+    FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+    OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+
+*/
+
+
+/**
+
+    The ROS Project
+
+
+    This project resembles the Room Occupancy System
+
+    A 6th Semester Project of the Studies Medientechnologie
+    for Cologne Technical College in Deutz
+
+
+    The main goal of this project is to create an easy to use
+    system, that enables users to have access and manage
+    room occupancy in a building with many attendants in the
+    need to have frequent and manageable access to facilities
+    within the main building of TH Deutz
+
+
+    This system will provide a user web-frontend to accommodate for
+    many users, either on mobile or on desktop to have access to
+    the system, aswell as building internal hardware which will
+    display realtime data in front of specified facilities
+    for students and professors to have direct access to crutial
+    information about room occupancy and planing
+
+
+    DOS : 16.04.2021
+    DOE : 14.09.2021
+
+    Phase 1:    Planning
+    Phase 2:    Research
+    Phase 3:    Implementation
+    Phase 4:    Testing
+    Phase 5:    Completion
+
+
+
+
+*/

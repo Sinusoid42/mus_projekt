@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room Occupancy System - Rooms</title>
+
+    <link rel="stylesheet"  href ="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/color_sceme.css">
+    <link rel="stylesheet" href="/css/user.css">
+    <link rel="stylesheet" href="/css/main_menu.css">
+    <script defer src="/js/main.js"></script>
+    <script defer src="/js/user.js"></script>
+    <script defer src="/js/main_menu.js"></script>
+    <script defer src="/js/account.js"></script>
+    <script>
+        const uid = {{.user_id}}
+    </script>
+</head>
+<body>
+<div class="col-12 pt-4 ros-bg-sb fixed-top">
+    <div class="row">
+        <div class="col-3">
+            <ul id="m0">
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="form_container ros-bg-lb mt-5">
+
+    <div class="container-fluid justify-content-center d-flex">
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 form_body ros-bg-sb">
+                <div class="row pt-3">
+                    <div class="col-8">
+                        <!-- ROS LOGO HERE -->
+                        <div class="row justify-content-center"> <!-- USERMENU ROW -->
+                            <div class="col-12 ">
+                                <div class="row justify-content-center">
+                                    <div class="col-10" id="user_menu">
+                                        <div class="row justify-content-around">
+                                            {{if .auth}}
+                                                <div class="col-2 umb text-center" onclick="u.open('logout')">
+                                                    Logout
+                                                </div>
+                                                {{if .api_rooms_access}}
+                                                    <div class="col-2 umb text-center" onclick="u.open('api_rooms')">
+                                                        rooms
+                                                    </div>
+                                                {{end}}
+                                                {{if .api_arduinos_access}}
+                                                    <div class="col-2 umb text-center" onclick="u.open('api_arduinos')">
+                                                        arduinos
+                                                    </div>
+                                                {{end}}
+                                                {{if .api_templates_access}}
+                                                    <div class="col-2 umb text-center" onclick="u.open('api_templates')">
+                                                        templates
+                                                    </div>
+                                                    <div class="col-2 umb text-center" onclick="u.open('api_upgrades')">
+                                                        upgrades
+                                                    </div>
+                                                {{end}}
+                                            {{else}}
+                                                <div class="col-2 umb text-center" onclick="u.open('login')">
+                                                    Login
+                                                </div>
+                                            {{end}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-5 font-weight-bold text-center"style="overflow: auto;border-style: solid;border-width: 1px;background-color: #FFFFFF;border-color: #000000;border-radius: 0.2em 0.2em 0.2em 0.2em;">
+                                Your Bookings
+                            </div>
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12" id ="booking_list" style="overflow: auto; width: 100%; height: 28em;border-style: none;background-color: #A7BFD1;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <div class="row justify-content-center mt-0 pt-0"><div class="col-8 text-left font-italic font-weight-bold">Room</div></div>
+                                <div class="row justify-content-center mt-0 pt-0"><div class="col-8 text-left font-italic font-weight-bold">Occupancy</div></div>
+                                <div class="row justify-content-center mt-0 pt-0"><div class="col-8 text-left font-italic font-weight-bold">System</div></div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row justify-content-center">
+                                    <img class=" col-3ml-4 mt-0" src="/svg/ros_icon.svg" width="60em" height="80em">
+                                </div>
+
+                            </div>
+                        </div>
+                        {{if .auth}}
+                        <div class="row mt-2 justify-content-around">
+                            <div class="col-5">
+                                <div class="row">
+                                    <div class="col-12 text-center" style="background-color: #FFFFFF;border-radius: 0.2em 0.2em 0.2em 0.2em;">
+                                        Access
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="row">
+                                    <div class="col-12 text-center" style="background-color: #FFFFFF;border-radius: 0.2em 0.2em 0.2em 0.2em;">
+                                        {{.access_name}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{end}}
+                        {{if .upgradeable}}
+                        <div class="row justify-content-center mt-2" id="ubtn">
+                            <div class="col-3">
+                                <div class="row">
+                                    <div onclick="acc.upgrade('{{.user_id}}')" class="col-12 text-center acc_u_b" style="border-radius: 0.2em 0.2em 0.2em 0.2em;">
+                                        Upgrade
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{end}}
+                        <div class="row pt-4 d-flex justify-content-center" >
+                            <!-- Here goes the dynamically Form-->
+                            <div class="col-12" id="settings_form">
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="row justify-content-around mt-1">
+                                            <div class="col-5 text-center font-weight-bold" style="background-color: #FFFFFF;border-radius: 0.2em 0.2em 0.2em 0.2em;">
+                                                Booking ID
+                                            </div>
+                                            <div class="col-6 text-center m-0 p-0 pt-1" style="font-size: 12px;background-color: #FFFFFF;border-radius: 0.2em 0.2em 0.2em 0.2em;" id="bs_id">
+                                                -
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-around mt-1">
+                                            <div class="col-5 text-center font-weight-bold" style="background-color: #FFFFFF;border-radius: 0.2em 0.2em 0.2em 0.2em;">
+                                                Room ID
+                                            </div>
+                                            <div class="col-6 text-center m-0 p-0 pt-1" style="font-size: 12px;background-color: #FFFFFF;border-radius: 0.2em 0.2em 0.2em 0.2em;" id="bs_rid">
+                                                -
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-around mt-1">
+                                            <div class="col-5 text-center font-weight-bold" style="background-color: #FFFFFF;border-radius: 0.2em 0.2em 0.2em 0.2em;">
+                                                Topic
+                                            </div>
+                                            <input type="text" value="topic" class="col-6 text-center m-0 p-0 pt-0" style="background-color: #FFFFFF;border-radius: 0.2em 0.2em 0.2em 0.2em;" id="bs_tpc" placeholder="topic">
+
+                                        </div>
+                                        <div class="row justify-content-around mt-1">
+                                            <div class="col-5">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-12 text-center font-weight-bold" style="background-color: #FFFFFF;border-radius: 0.2em 0.2em 0.2em 0.2em;">
+                                                        Description
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <textarea value="-" class="col-6 text-center m-0 p-0 pt-1" style="background-color: #FFFFFF;border-radius: 0.2em 0.2em 0.2em 0.2em;" id="bs_dsc" placeholder="description"></textarea>
+                                        </div>
+                                        <div class="row justify-content-around mt-1">
+                                            <div class="col-5 text-center font-weight-bold" style="background-color: #FFFFFF;border-radius: 0.2em 0.2em 0.2em 0.2em;">
+                                                Count
+                                            </div>
+                                            <input type="number" min ="0" value="" class="col-6 text-center m-0 p-0 pt-0" style="background-color: #FFFFFF;border-radius: 0.2em 0.2em 0.2em 0.2em;" id="bs_c" placeholder="topic">
+                                        </div>
+
+                                        {{if .reoccurring_available}}
+                                        <div class="row justify-content-around mt-1">
+                                            <div class="col-5 text-center font-weight-bold" style="background-color: #FFFFFF;border-radius: 0.2em 0.2em 0.2em 0.2em;">
+                                                Reoccuring Meetings
+                                            </div>
+                                            <div class="col-6" >
+                                                <div class="row justify-content-center">
+                                                    <button disabled = "true" class="col-2  m-0 p-0 pt-0 text-center u_bks_r" id="bks_t_r">
+                                                        X
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row justify-content-around mt-1">
+                                            <div class="col-5 text-center font-weight-bold" style="background-color: #FFFFFF;border-radius: 0.2em 0.2em 0.2em 0.2em;">
+                                                Enddate
+                                            </div>
+                                            <input type="date" value="" class="col-6 text-center m-0 p-0 pt-0" style="background-color: #FFFFFF;border-radius: 0.2em 0.2em 0.2em 0.2em;" id="bs_d">
+                                        </div>
+                                        {{end}}
+                                        <div class="row justify-content-center mt-3">
+                                            <button disabled="true" class="col-3 u_bks_r text-center" id="bs_sv">
+                                                Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

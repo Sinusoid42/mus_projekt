@@ -1,0 +1,34 @@
+/**
+    user upgrade api page css definitions
+
+    @author ben
+ */
+
+
+.upgrade_reject{
+    border-width: 1px;
+    border-radius: 0.2em;
+    border-color: #000000;
+    border-style: solid;
+    background-color: #db4f60;
+    text-align: center;
+}
+
+.upgrade_reject:hover{
+    background-color:  #c1303f;
+}
+
+
+.upgrade_confirm {
+    text-align: center;
+    background-color:#bff5aa;
+    border-width: 1px;
+    border-radius: 0.2em;
+    border-color: #000000;
+    border-style: solid;
+}
+
+
+.upgrade_confirm:hover{
+    background-color: #97fd54;
+}

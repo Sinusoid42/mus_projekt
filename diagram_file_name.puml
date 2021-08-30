@@ -1,0 +1,292 @@
+@startuml
+namespace model {
+    class Arduino << (S,Aquamarine) >> {
+        - arduino_id string
+        - room_id string
+        - room_location string
+        - arduino_ip_adress string
+        - arduino_inet_port string
+        - arduino_password string
+        - arduino_color_options []string
+        - arduino_type string
+        - arduino_firmware string
+        - arduino_active_template string
+
+        + _id string
+        + _rev string
+
+        + A2M() <font color=blue>map</font>[string]<font color=blue>interface</font>{}
+        + StoreUpdate(update <font color=blue>map</font>[string]<font color=blue>interface</font>{}) bool
+        + GetTemplateName() string
+        + GetRoomID() string
+
+    }
+    class Arduino_Log << (S,Aquamarine) >> {
+        - room_location Location
+        - arduino_id string
+        - room_id string
+        - last_time_fetch string
+        - last_time_fetch_info string
+
+    }
+    class Booking << (S,Aquamarine) >> {
+        - booking_id string
+        - user_id string
+        - room_id string
+        - occupancy int
+        - booking_topic string
+        - booking_description string
+        - booking_user_access int
+        - time *BookingTime
+
+        + _id string
+        + _rev string
+
+        + Save() error
+        + ID() string
+        + SetNonRepeating()
+        + Topic() string
+        + Description() string
+        + UserID() string
+        + RoomID() string
+        + GetTime() *BookingTime
+        + StartTime() int
+        + EndTime() int
+        + Remove() error
+        + GetCount() int
+        + Duration() int
+        + ComparePriority(p int) int
+        + UserAccess() int
+        + UserName() string
+        + SaveBooking(r *http.Request) (<font color=blue>map</font>[string]<font color=blue>interface</font>{}, error)
+
+    }
+    class BookingTime << (S,Aquamarine) >> {
+        - year int
+        - week int
+        - month int
+        - day int
+        - start int
+        - end int
+        - reocurring bool
+        - end_year int
+        - end_week int
+        - end_month int
+        - end_day int
+
+        + Year() int
+        + Month() int
+        + Day() int
+        + Week() int
+        + EndWeek() int
+        + EndYear() int
+        + EndMonth() int
+        + EndDay() int
+        + Reoccurring() bool
+
+    }
+    class Element << (S,Aquamarine) >> {
+        - element_id string
+        - content string
+        - content_static bool
+        - x int
+        - y int
+        - w int
+        - h int
+        - color string
+        - fill_color string
+        - font_size int
+        - pixel_size int
+        - style string
+        - form string
+
+        + GetElementID() string
+        + GetContent() string
+        + GetContentStatic() bool
+        + GetX() int
+        + GetY() int
+        + GetW() int
+        + GetH() int
+        + GetColor() string
+        + GetFillColor() string
+        + GetFontSize() int
+        + GetPixelSize() int
+        + GetStyle() string
+        + GetForm() string
+
+    }
+    class Location << (S,Aquamarine) >> {
+        - room_floor_level int
+        - room_corridor int
+        - room_number int
+        - room_name string
+
+        - toString() string
+
+        + Name() string
+
+    }
+    class Room << (S,Aquamarine) >> {
+        - room_id string
+        - room_name string
+        - room_name_misc string
+        - arduino_available bool
+        - room_bookable bool
+        - room_booking_duration int
+        - room_booking_ids []string
+        - room_maximum_capacity int
+        - room_location Location
+
+        + _id string
+        + _rev string
+
+        - storeNew() (bool, error)
+
+        + Save() (bool, error)
+        + Arduino_Available() bool
+        + ID() string
+        + Room_Name() string
+        + Room_Name_Misc() string
+        + Location2M() <font color=blue>map</font>[string]<font color=blue>interface</font>{}
+        + Max_Capacity() int
+        + Bookable() bool
+        + Remove() error
+        + Max_Booking_Duration() int
+        + Put(room_name string, room_name_msc string, room_bookable bool, room_duration int, room_location_name string, room_location_floor int, room_location_corridor int, room_location_number int, room_max_capacity int)
+        + RoomNumber() int
+        + Location() *Location
+        + GetBookingsByWeek(y int, w int) (*[]*[]*[]*Booking, error)
+        + AttachNewBooking(b *Booking)
+        + RemoveBookingByID(id string) error
+        + RemoveArduino()
+        + GetCurrentBookings() (*[]*Booking, error)
+
+    }
+    class Template << (S,Aquamarine) >> {
+        - template_id string
+        - template_name string
+        - elements []*Element
+
+        + _id string
+        + _rev string
+
+        + GetElementByID(id string) (*Element, error)
+        + AddElement() (*Element, error)
+        + Save() error
+        + Delete() error
+        + GetElements() *[]*Element
+        + GetName() string
+        + GetID() string
+        + Remove()
+        + CheckElement(eid string) (bool, int)
+        + RemoveElementByIndex(i int) error
+        + SetName(name string)
+        + SaveSettings(index int, tname string, eid string, econtent string, estatic bool, x int, y int, w int, h int, color string, fill_color string, font_size int, pixel_size int, style string, form string)
+
+    }
+    class User << (S,Aquamarine) >> {
+        - confirmed bool
+        - user_name string
+        - user_password string
+        - admin_access_level int
+        - user_bookings []string
+        - user_email_address string
+
+        + _id string
+        + _rev string
+
+        - u2m() (<font color=blue>map</font>[string]<font color=blue>interface</font>{}, error)
+        - setPassword(r13pw string) error
+
+        + GetID() string
+        + GetAccessLevel() int
+        + GetEmailAddress() string
+        + StoreUser() (bool, error)
+        + Confirmed() bool
+        + Save() (bool, error)
+        + SendWelcomeEmail()
+        + SendPasswordResetEmail()
+        + ResendWelcomeEmail()
+        + UpgradeAccount(level int)
+        + SendAccountUpgradeEmail(access int)
+        + Confirm(a bool) error
+        + PasswordResetTimeout() (int, string)
+        + Set(n string, pw string) error
+        + HandlePasswordReset(r13pw string) error
+        + GetBookings() []string
+        + AttachNewBooking(b *Booking)
+        + RemoveBookingByID(id string) error
+        + GetUserName() string
+        + Upgradeable() bool
+        + AccessName() string
+
+    }
+}
+
+
+namespace service {
+    class login_service_helper << (S,Aquamarine) >> {
+        - email string
+        - t string
+
+        + _id string
+        + _rev string
+        + ID string
+
+        - store() error
+        - save() error
+
+    }
+    class pw_service_helper << (S,Aquamarine) >> {
+        - email string
+        - t string
+        - timer string
+
+        + _id string
+        + _rev string
+        + ID string
+
+        - store() error
+        - save() error
+
+        + GetTime() time.Time
+        + RemovePWSH() error
+
+    }
+    class upgrade_access_service_helper << (S,Aquamarine) >> {
+        - user_id string
+        - email_address string
+        - user_access int
+        - t string
+
+        + _id string
+        + _rev string
+        + ID string
+
+        - store() error
+
+    }
+    class upgrade_service_helper << (S,Aquamarine) >> {
+        - user_id string
+        - email_address string
+        - user_access int
+        - t string
+
+        + _id string
+        + _rev string
+        + ID string
+
+        - store() error
+        - save() error
+
+        + EmailAddress() string
+        + UserAccess() int
+        + GetUserID() string
+        + SaveAccessLevel(a int)
+
+    }
+}
+
+
+@enduml
+
